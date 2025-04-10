@@ -18,6 +18,13 @@ function App() {
   const [vehicleData, setVehicleData] = useState(null);
   const [vehicleMake, setVehicleMake] = useState([]);
   const [vehicleModel, setVehicleModel] = useState([]);
+  const [vehicleManufacturer, setVehicleManufacturer] = useState([]);
+  const [vehicleModelYear, setVehicleModelYear] = useState([]);
+  const [vehiclePlantCity, setVehiclePlantCity] = useState([]);
+  const [vehiclePlantState, setVehiclePlantState] = useState([]);
+  const [vehiclePlantCountry, setVehiclePlantCountry] = useState([]);
+  const [vehicleType, setVehicleType] = useState([]);
+
 
   const handleClick = () => {
 
@@ -37,6 +44,13 @@ function App() {
         //setVehicleData(data.Results[0]);
         setVehicleMake(data.Results[0].Make);
         setVehicleModel(data.Results[0].Model);
+        setVehicleManufacturer(data.Results[0].Manufacturer);
+        setVehicleModelYear(data.Results[0].ModelYear);
+        setVehiclePlantCity(data.Results[0].PlantCity);
+        setVehiclePlantState(data.Results[0].PlantState);
+        setVehiclePlantCountry(data.Results[0].PlantCountry);
+        setVehicleType(data.Results[0].VehicleType);
+        setVehicleBodyClass(data.Results[0].BodyClass);
         console.log(data.Results[0]);
       } else {
         setVehicleData(null);
@@ -50,15 +64,13 @@ function App() {
   return (
     <>
 
-      <Container>
-        <Row>
-          <Col>
+      <Container fluid>
+        <Row>        
+          <Col lg={true} >
             <Card>
-              <Card.Header>VIN Decoder</Card.Header>
+              <Card.Header>Results</Card.Header>
               <Card.Body bg="Secondary" >
-                <InputGroup className="mb-3">
-
-                  <Form.Control value={vin} onChange={(e) => setVin(e.target.value)}
+              <Form.Control value={vin} onChange={(e) => setVin(e.target.value)}
                     placeholder="Enter a VIN to get started."
                     aria-label="VIN"
                     aria-describedby="basic-addon1"
@@ -66,14 +78,6 @@ function App() {
                   <Button variant="outline-secondary" id="button-addon2" onClick={handleDecode}>
                     Run It
                   </Button>
-                </InputGroup>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card>
-              <Card.Header>Results</Card.Header>
-              <Card.Body bg="Secondary" >
                 <InputGroup className="mb-3">
                   <InputGroup.Text className="w-50" id="basic-addon1">Make: </InputGroup.Text>
                   <Form.Control value={vehicleMake} onChange={setVehicleMake} readOnly
@@ -84,13 +88,18 @@ function App() {
                   <Form.Control value={vehicleModel} onChange={setVehicleModel} readOnly
                   />
                 </InputGroup>
+                <InputGroup className="mb-3">
+                  <InputGroup.Text className="w-50" id="basic-addon1">Model: </InputGroup.Text>
+                  <Form.Control value={vehicleManufacturer} onChange={setVehicleManufacturer} readOnly
+                  />
+                </InputGroup>
               </Card.Body>
             </Card>
           </Col>
         </Row>
       </Container>
 
-      <footer></footer>
+
 
 
     </>
