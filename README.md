@@ -1,4 +1,4 @@
-# Vehicle Identitification Number Translator.
+# Vehicle Identitification Number Translator
 
 This is a quick app written in JavaScript that utilizies the National Highway Traffic Safety Administration's VIN database to convert VINs to something of value.
 
